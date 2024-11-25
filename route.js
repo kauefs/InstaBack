@@ -16,18 +16,18 @@ const upload  = multer({dest:'./uploads', storage})
 */
 // MiddleWare Instances:
 const   corsOptions   = {origin:'*',  // http://localhost:8000
-           optionsSuccessStatus: 200};
+           optionsSuccessStatus:200};
 const     upload      =  multer({dest:   './uploads'        });
 // Routes Using Express:
 const          routes = (app) => {app.use(  express.json(   ));      // JSON Requisitions Interpreter
                                   app.use(  cors(corsOptions));     // CORS Options
-                                  app.get('/'     , getPosts);// Route to Get All Posts
+                                  app.get( '/'          , getPosts);// Route to Get All Posts
                                                                   // Create Post:
-                                  app.post('/'    , Posting);
+                                  app.post('/'          , Posting);
                                                                 // Single Image UpLoad:
-                                  app.post('/upload'   , upload.single('img'), upLoadIMG);
+                                  app.post('/upload'    , upload.single('img'), upLoadIMG);
                                                               // Post UpDate:
-                                  app.put('/upload/:id', PostUpDate)
+                                  app.put( '/upload/:id', PostUpDate)
                                                             // General Error Handler:
                                   app.use ((err, req, res, next) => {console.error(err.stack);
                                                       res.status(500).send('SomeThing Went Wrong!')})};
