@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
-const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.API);
 const model =  genAI.getGenerativeModel({ model:'gemini-1.5-flash'});
 export default async function GeminiDescription(imageBuffer){const prompt='description to the following image in no more than five words';
     try {const image={inlineData:{data:imageBuffer.toString('base64'), mimeType:'image/png'}};
