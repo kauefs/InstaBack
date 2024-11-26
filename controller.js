@@ -12,7 +12,7 @@ export async function Posting   (req, res){    const newPost    =req.body ;
                                            try{const Created    = await creatPost(newPost);
                                       res.status(200).json(Created)}
                                               catch(error){  console.error('Error Creating Post:' , error.message);
-                                      res.status(500).jason({        error:'Request Failed!'})}};
+                                      res.status(500).json({         error:'Request Failed!'})}};
 export async function upLoadIMG (req, res){    const newPost    ={description:''   ,
                                                                     imgURL:req.file.originalname,
                                                                        alt:''};
@@ -21,7 +21,7 @@ export async function upLoadIMG (req, res){    const newPost    ={description:''
                                                fs.renameSync(    req.file.path, UpDateIMG)
                                       res.status(200).json(Created)}
                                               catch(error){  console.error('Error Creating Post:' , error.message);
-                                      res.status(500).jason({        error:'Request Failed!'})}};
+                                      res.status(500).json({         error:'Request Failed!'})}};
 export async function PostUpDate(req, res){    const id         =req.params.id;
                                                const urlIMG     =`http://localhost:3000/${id}.png`;
                                              //const postUpDate ={  imgURL:urlIMG,
@@ -35,4 +35,4 @@ export async function PostUpDate(req, res){    const id         =req.params.id;
                                                const Created    = await upDatePost(id, postUpDate);
                                       res.status(200).json(Created)}
                                               catch(error){  console.error('Error Creating Post:' , error.message);
-                                      res.status(500).jason({        error:'Request Failed!'})}};
+                                      res.status(500).json({         error:'Request Failed!'})}};
